@@ -2,8 +2,7 @@ var cluster = require('cluster');
 var app = require('./app');
 
 var workers = {};
-var count = require('os').cpus().length * 2;
-//var count = 1;
+var count = require('os').cpus().length;
 
 function spawn () {
   var worker = cluster.fork();
