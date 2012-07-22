@@ -29,11 +29,14 @@
         // `thedata` is what you get from the routing api
 
         // taking the first out of the 10 results I give you
-        thedata = thedata[4];
+        thedata = thedata[0];
 
         //  new google.maps.LatLng(37.869085,-122.254775); to make a new lat lon pt
 
         var lastloc = thedata.locations.pop();
+
+        // shift of the start location
+        thedata.locations.shift();
 
         var query = {
           // start location
@@ -48,8 +51,7 @@
           waypoints: []
         };
 
-        //for (var i = 0; i < thedata.locations.length; i++) {
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < thedata.locations.length; i++) {
           query.waypoints.push({
             location: new google.maps.LatLng(
               Number(thedata.locations[i].lat), 
