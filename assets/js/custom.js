@@ -264,7 +264,7 @@ var Requester = function()
        	waypoints: []
      	};
 
-     	for (var i = data.locations.length-1; i >= 0; i--) {
+     	for (var i = 0; i < data.locations.length; i++) {
       	query.waypoints.push({
          	location: new google.maps.LatLng(
            		Number(data.locations[i].lat), 
