@@ -201,6 +201,8 @@ var Inputer = function()
 	     	$('#results ul').html('');
 	     	$('#map').css('height', 0).css('width', 0);
 		});
+
+		$('#input').removeAttr('disabled');
 	}
 	exports.init = init;
 

@@ -14,7 +14,7 @@
 		<i class="icon-check"></i>
 		<span>Things I've got to do:</span>
 	</div>
-	<input type="text" id="input" />
+	<input type="text" id="input" disabled="disabled"/>
 	<div id="items">
 		<ul></ul>
 	</div>
