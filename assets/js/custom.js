@@ -221,12 +221,21 @@ var Requester = function()
      	// taking the first out of the 10 results I give you
      	data = data[0];
 
-     	var num = 66;
-     	for (var i = 1; i < data.locations.length; i++)
+     	var num = 65;
+     	for (var i = 0; i < data.locations.length; i++)
      	{	
      		// console.log(data.locations[i]);
-     		var address = data.locations[i].result.Address+'<br />'+data.locations[i].result.City+', '+data.locations[i].result.State;
-     		var name = data.locations[i].name;
+     		if (i == 0)
+     		{
+     			var name = 'Start';
+     			var address = '';
+     		}
+     		else
+     		{
+     			var address = data.locations[i].result.Address+'<br />'+data.locations[i].result.City+', '+data.locations[i].result.State;
+     			var name = data.locations[i].name;
+     		}
+
      		$('#places-container ul')
      			.append('<li><span class="number">'+String.fromCharCode(num)+'</span><i class="icon-map-marker"></i><span class="title">'+name+'</span><span class="address">'+address+'</span></li>');
 
