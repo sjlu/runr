@@ -182,8 +182,8 @@ var Inputer = function()
 
 	function init()
 	{
-		$('#input').keydown(function() {
-			if (event.keyCode == 13)
+		$('#input').keydown(function(evt) {
+			if (evt.keyCode == 13)
 			{
 				$('#input').attr('disabled', 'disabled');
 				search(this.value);
