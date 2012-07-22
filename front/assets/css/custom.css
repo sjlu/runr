@@ -63,6 +63,7 @@ textarea:focus, input:focus{
 	margin-left: 64px;
 	margin-bottom: -17px;
 	padding: 24px;
+	height: 27px;
 	border: 2px solid #f2f2f2;
 }
 

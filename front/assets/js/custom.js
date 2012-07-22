@@ -41,7 +41,7 @@ var Geocoder = function()
 
 			location_success(results.formatted_address);
 
-			if (!exports.current_location)
+			if (!exports.current_location.lat)
 				set_location(results.geometry.location.lat(), results.geometry.location.lng());
 		});
 	}
@@ -56,6 +56,7 @@ var Geocoder = function()
 
 	function geolocation(zipcode)
 	{
+		exports.current_location = {};
 		request_google({'address': zipcode});
 	}
 	exports.geolocation = geolocation;
@@ -182,7 +183,7 @@ var Inputer = function()
 
 	function init()
 	{
-		$('#input').keydown(function(evt) {
+		$('#input').unbind().keydown(function(evt) {
 			if (evt.keyCode == 13)
 			{
 				$('#input').attr('disabled', 'disabled');
@@ -190,7 +191,7 @@ var Inputer = function()
 			}
 		});
 
-		$('#button').click(function() {
+		$('#button').unbind().click(function() {
 			requester.request();
 		});
 	}
@@ -214,7 +215,7 @@ var Requester = function()
      	var num = 66;
      	for (var i = 1; i < data.locations.length; i++)
      	{	
-     		console.log(data.locations[i]);
+     		// console.log(data.locations[i]);
      		var address = data.locations[i].result.Address+'<br />'+data.locations[i].result.City+', '+data.locations[i].result.State;
      		var name = data.locations[i].name;
      		$('#places-container ul')
@@ -265,7 +266,7 @@ var Requester = function()
      	}
 
      	directionsService.route(query, function(response, status) {
-      	console.log(status);
+      	// console.log(status);
        	if (status == google.maps.DirectionsStatus.OK) {
          	directionsDisplay.setDirections(response);
        	}
