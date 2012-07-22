@@ -8,7 +8,7 @@ var http = require('http');
 
 var app = express();
 
-var nnn = require('nnn');
+var nnn = require('./nnn');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 8000);
@@ -23,7 +23,15 @@ app.configure(function(){
 
 app.post('/route', function (req, res) {
   // req.body.locations
+  // req.body.categories
+  // req.body.start
 
+  var model = {
+    locations: [{name:'start', lat: req.body.start.lat, lon: req.body.start.lon}],
+    distance: 0,
+    categories: {}
+  };
+  req.send(nnn.solve(model, req.body.locations, req.body.categories));
 });
 
 /* 
