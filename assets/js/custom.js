@@ -281,6 +281,10 @@ var Requester = function()
        	}
      	});
 
+     	/**
+     	 * HTML
+     	 */
+
      	$('#results').fadeIn();
 
 		$('#map').css('height', window.innerHeight).css('width', window.innerWidth);
@@ -288,6 +292,10 @@ var Requester = function()
 
      	$('html, body').animate({scrollTop:$(document).height()}, 'slow');
      	google.maps.event.trigger(map, "resize");
+
+     	$('#button').unbind().html('Submit').click(function() {
+			requester.request();
+		});
 	}
 
 	function request()
@@ -302,6 +310,8 @@ var Requester = function()
   			request_success,
   			"json"
   		);
+
+  		$('#button').unbind().html('<img src="/assets/img/loader.gif" />');
 	}
 	exports.request = request;
 
