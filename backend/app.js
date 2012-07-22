@@ -26,12 +26,21 @@ app.post('/route', function (req, res) {
   // req.body.categories
   // req.body.start
 
+  var start = JSON.parse(req.body.start);
+  var categories = JSON.parse(req.body.categories);
+  var locations = JSON.parse(req.body.locations);
+
+  start.name = 'start';
+
   var model = {
-    locations: [{name:'start', lat: req.body.start.lat, lon: req.body.start.lon}],
+    locations: [start],
     distance: 0,
     categories: {}
   };
-  req.send(nnn.solve(model, req.body.locations, req.body.categories));
+
+  var result = nnn.solve(model, locations, categories);
+
+  res.send(result);
 });
 
 /* 
