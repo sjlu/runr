@@ -2,6 +2,10 @@
  * All your custom CSS should go into this file
  */
 
+body {
+	min-width: 960px;
+}
+
 #header {
 	background-color: #0a2240;
 	text-align: center;
@@ -10,7 +14,7 @@
 }
 
 .section {
-	width: 900px;
+	width: 800px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
@@ -78,7 +82,7 @@ textarea:focus, input:focus{
 #items li {
 	width: 75%;
 	margin-top: 18px;
-	padding: 25px;
+	padding: 28px;
 	border: 2px solid #f2f2f2;
 }
 
