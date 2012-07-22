@@ -229,15 +229,17 @@ var Requester = function()
      		{
      			var name = 'Start';
      			var address = '';
+     			var category = '';
      		}
      		else
      		{
      			var address = data.locations[i].result.Address+'<br />'+data.locations[i].result.City+', '+data.locations[i].result.State;
      			var name = data.locations[i].name;
+     			var category = '"'+data.locations[i].category+'"';
      		}
 
      		$('#places-container ul')
-     			.append('<li><span class="number">'+String.fromCharCode(num)+'</span><i class="icon-map-marker"></i><span class="title">'+name+'</span><span class="address">'+address+'</span></li>');
+     			.append('<li><span class="number">'+String.fromCharCode(num)+'</span><i class="icon-map-marker"></i><span class="title">'+name+'</span><span class="category">'+category+'</span><span class="address">'+address+'</span></li>');
 
      		num++;
      	}
