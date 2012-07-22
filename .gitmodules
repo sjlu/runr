@@ -1,0 +1,3 @@
+[submodule "backend/nnn"]
+	path = backend/nnn
+	url = github:russfrank/nearest-category
