@@ -28,6 +28,7 @@
 			<h1><i class="icon-sitemap"></i>Results</h1>
 			<ul></ul>
 		</div>
+		<a id="refine">refine list</a>
 	</div>
 	<div id="map"></div>
 </div>

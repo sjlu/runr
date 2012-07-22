@@ -194,6 +194,13 @@ var Inputer = function()
 		$('#button').unbind().click(function() {
 			requester.request();
 		});
+
+		$('#refine').unbind().click(function() {
+     		$('html, body').animate({scrollTop:$('#tasks').offset().top}, 'fast');
+	     	$('#results').fadeOut();
+	     	$('#results ul').html('');
+	     	$('#map').css('height', 0).css('width', 0);
+		});
 	}
 	exports.init = init;
 
@@ -272,11 +279,13 @@ var Requester = function()
        	}
      	});
 
+     	$('#results').fadeIn();
+
 		$('#map').css('height', window.innerHeight).css('width', window.innerWidth);
 		$('#results').css('height', window.innerHeight).css('width', window.innerWidth);
 
-     	$('#results').fadeIn();
      	$('html, body').animate({scrollTop:$(document).height()}, 'slow');
+     	google.maps.event.trigger(map, "resize");
 	}
 
 	function request()
