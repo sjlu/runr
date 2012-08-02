@@ -45,25 +45,4 @@ app.post('/route', function (req, res) {
   res.send(result);
 });
 
-/* 
-
-Steve gives me locations and I calculate the distance to the user and place
-them into mongo.  This happens on selection in the interface.
-
-Later, Steve requests 'complete'. The actual computation happens here.  We
-use the calculated distances to do a nearest neighbor algorithm.  We might
-try it multiple times. We request directions from google maps based on the
-lat lons we calculate to be the best 'as the crow flies' path.  We then
-choose the fastest out of those we choose and send the waypoints back to
-Steve.
-
-*/
-
-
-/*
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
-*/
-
 module.exports = http.createServer(app);
